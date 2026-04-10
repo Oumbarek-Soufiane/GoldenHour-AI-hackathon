@@ -29,7 +29,7 @@ This is the **TypeScript companion** to [po-adk-python](https://github.com/promp
 
 | Agent | Description | FHIR? | Port |
 |---|---|---|---|
-| `healthcare_agent` | Queries a patient's FHIR R4 record — demographics, meds, conditions, observations, goldenHour,tier priority management, room availability management | ✅ Yes | 8001 |
+| `healthcare_agent` | Queries a patient's FHIR R4 record — demographics, meds, conditions, observations | ✅ Yes | 8001 |
 | `general_agent` | Date/time queries and ICD-10-CM code lookups — no patient data needed | ❌ No | 8002 |
 | `orchestrator` | Delegates to the other two agents using ADK's built-in sub-agent routing | ✅ Optional | 8003 |
 
