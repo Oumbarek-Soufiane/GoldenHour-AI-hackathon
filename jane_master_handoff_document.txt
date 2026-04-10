@@ -1,0 +1,23 @@
+========================================================
+PATIENT CLINICAL RECORD: JANE WINTHROP
+========================================================
+DIAGNOSIS: Acute Myocardial Infarction (STEMI)
+ONSET OF SYMPTOMS: Thursday, April 9, 2026, 3:15 PM (Local Time)
+CURRENT TIME: Thursday, April 9, 2026, 3:55 PM (Local Time)
+
+VITALS HISTORY:
+- 3:15 PM (Onset): HR 105, BP 160/95
+- 3:35 PM (Arrival): HR 120, BP 180/105
+- 3:55 PM (Current): HR 135, BP 195/110
+
+MEDICATIONS: Heparin IV Bolus (Ordered)
+CARE PLAN: Emergency Cardiac Catheterization (PCI).
+CARE TEAM: STEMI Code Team (Interventional Cardiologist)
+
+========================================================
+LIVE HOSPITAL CENSUS & BED MANAGEMENT
+========================================================
+- BAY 1: OCCUPIED (Patient: John Doe | Tier 1)
+- BAY 2: UNOCCUPIED (Status: Available | Capability: Tier 1, 2)
+- BAY 3: UNOCCUPIED (Status: Available | Capability: Tier 3, 4)
+========================================================

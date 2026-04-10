@@ -1,0 +1,215 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "jane-stroke-2026",
+        "name": [{ "family": "Winthrop", "given": ["Jane"] }],
+        "gender": "female",
+        "birthDate": "1965-05-12"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-802c-092222222222",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-stroke-jane",
+        "subject": { "reference": "Patient/jane-stroke-2026" },
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "422504002", "display": "Ischemic stroke" }], "text": "Suspected Acute Stroke" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "recordedDate": "2026-04-08T14:30:00Z"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-802c-094444444444",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-tpa-jane",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": { "text": "Alteplase (tPA) IV Bolus" },
+        "subject": { "reference": "Patient/jane-stroke-2026" }
+      },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+
+    {
+      "fullUrl": "urn:uuid:a1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "john-stemi-2026",
+        "name": [{ "family": "Peterson", "given": ["John"] }],
+        "gender": "male",
+        "birthDate": "1958-08-22"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:a1ebe359-bfdc-4613-802c-092222222222",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-stemi-john",
+        "subject": { "reference": "Patient/john-stemi-2026" },
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "401303003", "display": "STEMI" }], "text": "Acute Myocardial Infarction" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "recordedDate": "2026-04-08T19:15:00Z"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:a1ebe359-bfdc-4613-802c-095555555555",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "cp-pci-john",
+        "status": "active",
+        "intent": "order",
+        "title": "Emergency Cardiac Catheterization (PCI)",
+        "subject": { "reference": "Patient/john-stemi-2026" }
+      },
+      "request": { "method": "POST", "url": "CarePlan" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:b1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "sarah-pneu-2026",
+        "name": [{ "family": "Jenkins", "given": ["Sarah"] }],
+        "gender": "female",
+        "birthDate": "1982-03-14"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:b1ebe359-bfdc-4613-802c-094444444444",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-abx-sarah",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": { "text": "Ceftriaxone 2g IV" },
+        "subject": { "reference": "Patient/sarah-pneu-2026" }
+      },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+  
+    {
+      "fullUrl": "urn:uuid:c1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "david-sepsis-2026",
+        "name": [{ "family": "King", "given": ["David"] }],
+        "gender": "male",
+        "birthDate": "1945-11-30"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:c1ebe359-bfdc-4613-802c-092222222222",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-sepsis-david",
+        "subject": { "reference": "Patient/david-sepsis-2026" },
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "91302008", "display": "Sepsis" }] },
+        "clinicalStatus": { "coding": [{ "code": "active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+
+   
+    {
+      "fullUrl": "urn:uuid:d1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "emily-cell-2026",
+        "name": [{ "family": "Chen", "given": ["Emily"] }],
+        "gender": "female",
+        "birthDate": "1975-09-10"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+
+   
+    {
+      "fullUrl": "urn:uuid:e1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "michael-gi-2026",
+        "name": [{ "family": "Clark", "given": ["Michael"] }],
+        "gender": "male",
+        "birthDate": "2001-02-18"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+
+    
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-091111111111",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-resusc-1",
+        "name": "Resuscitation Bay 1 (Tier 1)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "O", "display": "Occupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    },
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-092222222222",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-resusc-2",
+        "name": "Resuscitation Bay 2 (Tier 1)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "U", "display": "Unoccupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    },
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-093333333333",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-trauma-a",
+        "name": "Trauma Room A (Tier 1)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "U", "display": "Unoccupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    },
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-094444444444",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-acute-1",
+        "name": "Acute Care Room 1 (Tier 2)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "U", "display": "Unoccupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    },
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-095555555555",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-gen-exam-1",
+        "name": "General Exam 1 (Tier 3)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "U", "display": "Unoccupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    },
+    {
+      "fullUrl": "urn:uuid:f1ebe359-bfdc-4613-802c-096666666666",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-fast-chair-1",
+        "name": "Fast Track Chair 1 (Tier 4)",
+        "operationalStatus": { "system": "http://terminology.hl7.org/CodeSystem/v2-0116", "code": "U", "display": "Unoccupied" }
+      },
+      "request": { "method": "POST", "url": "Location" }
+    }
+  ]
+}

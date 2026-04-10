@@ -27,8 +27,8 @@ const app = createA2aApp({
     name: 'General Agent',
     description: 'General utility agent — date/time queries and ICD-10-CM code lookups.',
     url: URL,
-    version: '1.0.0',
-    requireApiKey: false,   // This agent is intentionally public
+    version: '2.0.0',
+    requireApiKey: false,   
 });
 
 app.listen(PORT, () => {
