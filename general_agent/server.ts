@@ -25,10 +25,56 @@ const URL = process.env['GENERAL_AGENT_URL'] ?? `http://localhost:${PORT}`;
 const app = createA2aApp({
     agent: rootAgent,
     name: 'General Agent',
-    description: 'General utility agent — date/time queries and ICD-10-CM code lookups.',
+    description: " General utility agent — date/time queries and ICD-10-CM code lookups. A clinical assistant that queries a patient's FHIR health record to answer "+
+         "questions about demographics, active medications, conditions, and observations, and golden hours, availability rooms, care plan ",
     url: URL,
     version: '2.0.0',
-    requireApiKey: false,   
+    requireApiKey: false,
+      // Authenticated — callers must send X-API-Key
+   skills: [
+    {
+        id: "skill-triage-priority", // Required by SDK
+        name: "Clinical Triage & Prioritization",
+        description: "Calculates acuity tier and priority scores for incoming patients.",
+        tags: ["clinical", "triage", "scoring"] // Required by SDK
+    },
+    {
+        id: "skill-golden-hour", 
+        name: "Golden Hour Calculation",
+        description: "Calculates the exact remaining intervention window based on symptom onset and current time.",
+        tags: ["time-critical", "calculation", "emergency"] 
+    },
+    {
+        id: "skill-demographics", 
+        name: "Demographics Extraction",
+        description: "Extracts comprehensive patient profile, identifying details, and demographic information.",
+        tags: ["demographics", "patient", "profile"] 
+    },
+    {
+        id: "skill-active-conditions", 
+        name: "Active Medical Conditions",
+        description: "Retrieves and structures the patient's current active diagnoses and conditions.",
+        tags: ["conditions", "diagnosis", "clinical"] 
+    },
+    {
+        id: "skill-medications", 
+        name: "Medication Review",
+        description: "Pulls active medication lists and flags missing or overdue meds.",
+        tags: ["medications", "pharmacy", "fhir"] 
+    },
+    {
+        id: "skill-care-plan", 
+        name: "Care Plan & Goals",
+        description: "Identifies established clinical care plans, overarching care goals, and flags missing care gaps.",
+        tags: ["care-plan", "goals", "gaps"] 
+    },
+    {
+        id: "skill-room-availability", 
+        name: "Room Availability & Logistics",
+        description: "Queries the live hospital census to route patients to available, unoccupied rooms matching their tier.",
+        tags: ["logistics", "fhir", "beds"] 
+    }
+]
 });
 
 app.listen(PORT, () => {

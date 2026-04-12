@@ -39,26 +39,50 @@ const app = createA2aApp({
     version: '1.0.0',
     fhirExtensionUri: FHIR_EXTENSION,
     requireApiKey: true,   // Authenticated — callers must send X-API-Key
-    skills: [
-        {
-            id: "skill-triage-priority", // Required by SDK
-            name: "Clinical Triage & Prioritization",
-            description: "Calculates priority scores and Golden Hour status for time-critical patients.",
-            tags: ["clinical", "triage", "scoring"] // Required by SDK
-        },
-        {
-            id: "skill-bed-logistics", // Required by SDK
-            name: "Live Bed Logistics",
-            description: "Queries the live FHIR Location database to route patients to available unoccupied rooms.",
-            tags: ["logistics", "fhir", "beds"] // Required by SDK
-        },
-        {
-            id: "skill-fhir-extraction", // Required by SDK
-            name: "FHIR Data Extraction",
-            description: "Pulls active conditions, medications, and vitals directly from the patient record.",
-            tags: ["fhir", "data", "records"] // Required by SDK
-        }
-    ]
+   skills: [
+    {
+        id: "skill-triage-priority", // Required by SDK
+        name: "Clinical Triage & Prioritization",
+        description: "Calculates acuity tier and priority scores for incoming patients.",
+        tags: ["clinical", "triage", "scoring"] // Required by SDK
+    },
+    {
+        id: "skill-golden-hour", 
+        name: "Golden Hour Calculation",
+        description: "Calculates the exact remaining intervention window based on symptom onset and current time.",
+        tags: ["time-critical", "calculation", "emergency"] 
+    },
+    {
+        id: "skill-demographics", 
+        name: "Demographics Extraction",
+        description: "Extracts comprehensive patient profile, identifying details, and demographic information.",
+        tags: ["demographics", "patient", "profile"] 
+    },
+    {
+        id: "skill-active-conditions", 
+        name: "Active Medical Conditions",
+        description: "Retrieves and structures the patient's current active diagnoses and conditions.",
+        tags: ["conditions", "diagnosis", "clinical"] 
+    },
+    {
+        id: "skill-medications", 
+        name: "Medication Review",
+        description: "Pulls active medication lists and flags missing or overdue meds.",
+        tags: ["medications", "pharmacy", "fhir"] 
+    },
+    {
+        id: "skill-care-plan", 
+        name: "Care Plan & Goals",
+        description: "Identifies established clinical care plans, overarching care goals, and flags missing care gaps.",
+        tags: ["care-plan", "goals", "gaps"] 
+    },
+    {
+        id: "skill-room-availability", 
+        name: "Room Availability & Logistics",
+        description: "Queries the live hospital census to route patients to available, unoccupied rooms matching their tier.",
+        tags: ["logistics", "fhir", "beds"] 
+    }
+]
 });
 
 app.listen(PORT, () => {
